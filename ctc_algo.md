@@ -24,13 +24,13 @@ Connectionist Temporal Classification（CTC）[1]是一种端到端的RNN训练�
 
 $$
 \begin{aligned}
-\argmax_Y P(Y|X) &= \argmax_Y P(Y|A)*P(A|X) \\
+argmax_Y P(Y|X) &= \argmax_Y P(Y|A)*P(A|X) \\
 A&=[a_1, a_2, \cdots, a_n]
 \end{aligned}
 $$
 其中, $ P(A|X) $是 CNN网络，$P(Y|A)$ 是解码部分。
 
-因此，问题可以定义为训练一个分类器$h(x)= \argmax_{Y \in L^T } P(Y|X)$。
+因此，问题可以定义为训练一个分类器$h(x)= argmax_{Y \in L^T } P(Y|X)$。
 
 - 若只考虑卷积特征解码部分，输入序列为$A=[a_1, a_2, \cdots, a_n]$ 的长度大于输出预测的字符长度
 
@@ -69,6 +69,7 @@ $$
 {l}{\boldsymbol{p}(\boldsymbol{\pi} | \boldsymbol{x})=\prod_{\mathrm{t}=1}^{T} \boldsymbol{y}_{\boldsymbol{\pi}_{t}}^{t}, \forall \boldsymbol{\pi} \in \boldsymbol{L}^{\prime \mathrm{T}}} \\ {\boldsymbol{p}(\boldsymbol{z} | \boldsymbol{x})=\sum_{\boldsymbol{\pi} \in \mathcal{B}^{-1}(\boldsymbol{z})} \boldsymbol{p}(\boldsymbol{\pi} | \boldsymbol{x})}
 \end{array}
 $$
+
 其中：$\mathcal{B}^{-1}(\boldsymbol{z})$是全部路径集合的映射函数
 
 那`ctc loss`函数定义为
